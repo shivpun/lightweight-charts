@@ -9,8 +9,8 @@ export function drawDiamond(
 ): void {
 	// http://www.java2s.com/ref/javascript/canvas-shape-index.html
 	const squareSize = shapeSize('diamond', size);
-	const halfSize = ((squareSize - 1) * coords.pixelRatio) / 2;
-	const left = coords.x - halfSize;
+	const halfSize = (squareSize - 1) / 2;
+	const left = coords.x;
 	const top = coords.y - halfSize;
 	ctx.beginPath();
 	ctx.moveTo(left, top);
