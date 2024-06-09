@@ -67,18 +67,18 @@ function fillSizeAndY(
 			return;
 		}
 		case 'aboveBar': {
-			rendererItem.y = (priceScale.priceToCoordinate(highPrice, firstValue) - halfSize - offsets.aboveBar + Constants.BarOffset) as Coordinate;
+			rendererItem.y = (priceScale.priceToCoordinate(highPrice, firstValue) - halfSize - offsets.aboveBar) as Coordinate;
 			if (rendererItem.text !== undefined) {
-				rendererItem.text.y = rendererItem.y - halfSize - textHeight * (0.5 + Constants.TextMargin) + Constants.TextMarginOffset as Coordinate;
+				rendererItem.text.y = rendererItem.y - halfSize - textHeight * (0.5 + Constants.TextMargin) as Coordinate;
 				offsets.aboveBar += textHeight * (1 + 2 * Constants.TextMargin);
 			}
 			offsets.aboveBar += shapeSize + shapeMargin;
 			return;
 		}
 		case 'belowBar': {
-			rendererItem.y = (priceScale.priceToCoordinate(lowPrice, firstValue) + halfSize + offsets.belowBar - Constants.BarOffset) as Coordinate;
+			rendererItem.y = (priceScale.priceToCoordinate(lowPrice, firstValue) + halfSize + offsets.belowBar) as Coordinate;
 			if (rendererItem.text !== undefined) {
-				rendererItem.text.y = rendererItem.y + halfSize + shapeMargin + textHeight * (0.5 + Constants.TextMargin) - Constants.TextMarginOffset as Coordinate;
+				rendererItem.text.y = rendererItem.y + halfSize + shapeMargin + textHeight * (0.5 + Constants.TextMargin) as Coordinate;
 				offsets.belowBar += textHeight * (1 + 2 * Constants.TextMargin);
 			}
 			offsets.belowBar += shapeSize + shapeMargin;
