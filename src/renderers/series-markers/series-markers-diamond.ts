@@ -1,18 +1,17 @@
-import { Coordinate } from '../model/coordinate';
+import { Coordinate } from '../../model/coordinate';
 
-import { shapeSize } from './series-markers-utils';
+import { BitmapShapeItemCoordinates, shapeSize } from '../series-markers-utils';
 
 export function drawDiamond(
 	ctx: CanvasRenderingContext2D,
-	centerX: Coordinate,
-	centerY: Coordinate,
+	coords: BitmapShapeItemCoordinates,
 	size: number
 ): void {
 	// http://www.java2s.com/ref/javascript/canvas-shape-index.html
 	const squareSize = shapeSize('diamond', size);
-	const halfSize = (squareSize) / 2;
-	const left = centerX;
-	const top = centerY - halfSize;
+	const halfSize = ((squareSize - 1) * coords.pixelRatio) / 2;
+	const left = coords.x - halfSize;
+	const top = coords.y - halfSize;
 	ctx.beginPath();
 	ctx.moveTo(left, top);
 	ctx.lineTo(left - squareSize / 2, top + squareSize / 2);

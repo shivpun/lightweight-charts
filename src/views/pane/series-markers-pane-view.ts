@@ -57,7 +57,6 @@ function fillSizeAndY(
 	const shapeSize = calculateShapeHeight(timeScale.barSpacing()) * sizeMultiplier;
 	const halfSize = shapeSize / 2;
 	rendererItem.size = shapeSize;
-	const 
 
 	switch (marker.position) {
 		case 'inBar': {
