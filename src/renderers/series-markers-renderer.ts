@@ -15,6 +15,7 @@ import { drawCircle, hitTestCircle } from './series-markers-circle';
 import { drawSquare, hitTestSquare } from './series-markers-square';
 import { drawText, hitTestText } from './series-markers-text';
 import { BitmapShapeItemCoordinates } from './series-markers-utils';
+import { drawDiamond, hitTestDiamond } from './series-markers/series-markers-diamond';
 
 export interface SeriesMarkerText {
 	content: string;
@@ -135,6 +136,9 @@ function drawShape(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingConte
 		case 'square':
 			drawSquare(ctx, coordinates, item.size);
 			return;
+		case 'diamond':
+			drawDiamond(ctx, coordinates, item.size);
+			return;
 	}
 
 	ensureNever(item.shape);
@@ -162,5 +166,7 @@ function hitTestShape(item: SeriesMarkerRendererDataItem, x: Coordinate, y: Coor
 			return hitTestCircle(item.x, item.y, item.size, x, y);
 		case 'square':
 			return hitTestSquare(item.x, item.y, item.size, x, y);
+		case 'diamond':
+			return hitTestDiamond(item.x, item.y, item.size, x, y);
 	}
 }
